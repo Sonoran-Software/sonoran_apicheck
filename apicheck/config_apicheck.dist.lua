@@ -17,4 +17,4 @@ local config = {
 
 -- IMPORTANT: UNCOMMENT THE BELOW LINE ON ACTUAL PLUGINS!
 
-Config.RegisterPluginConfig(config.pluginName, config)
+--Config.RegisterPluginConfig(config.pluginName, config)
