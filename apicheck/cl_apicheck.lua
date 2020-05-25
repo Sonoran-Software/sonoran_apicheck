@@ -7,4 +7,4 @@
 
 ]]
 
-local pluginConfig = Config.plugins["apicheck"]
+local pluginConfig = Config.GetPluginConfig("apicheck")
