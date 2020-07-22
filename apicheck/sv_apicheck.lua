@@ -14,9 +14,14 @@ if pluginConfig.enabled then
     registerApiType("CHECK_APIID", "general")
 
     function cadApiIdExists(apiId, callback)
-        performApiRequest({{["apiId"] = apiId}}, "CHECK_APIID", function(res, exists)
-            callback(exists)
-        end)
+        if apiId == "" or apiId == nil then
+            debugLog("cadApiIdExists: No API ID specified, assuming false.")
+            callback(false)
+        else
+            performApiRequest({{["apiId"] = apiId}}, "CHECK_APIID", function(res, exists)
+                callback(exists)
+            end)
+        end
     end
 
     RegisterServerEvent("SonoranCAD::apicheck:CheckPlayerLinked")
