@@ -1,7 +1,9 @@
 # sonoran_apicheck
-SonoranCAD API Check Plugin
+This simple plugin exposes a check to see if an API ID exists. This is useful if you want to inform players they need to create an account on the CAD.
 
-## Install
+## Installation
+
+[Click to view the installation guide.](https://info.sonorancad.com/integration-plugins/integration-plugins/available-plugins/api-id-checker)
 
 - Copy folder to your `sonorancad/plugins` folder. 
 - Modify configuration found in `config_apicheck.dist.lua` and copy to a `config_apicheck.lua` file.
