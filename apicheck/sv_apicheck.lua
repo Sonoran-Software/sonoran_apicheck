@@ -36,8 +36,22 @@ if pluginConfig.enabled then
 
     RegisterCommand("apiid", function(source, args, rawCommand)
         local identifiers = GetIdentifiers(source)
-        if identifiers[Config.primaryIdentifier] ~= nil then
-            local pid = Config.serverType == "esx" and ("%s:%s"):format(Config.primaryIdentifier, identifiers[Config.primaryIdentifier]) or identifiers[Config.primaryIdentifier]
+        local pid = nil
+        if isPluginLoaded("esxsupport") then
+            local type = Config.plugins["esxsupport"].identityType
+            if identifiers[type] ~= nil then
+                if Config.plugins["esxsupport"].usePrefix then
+                    pid = ("%s:%s"):format(type, identifiers[type])
+                else
+                    pid = identifiers[type]
+                end
+            end
+        else
+            if identifiers[Config.primaryIdentifier] ~= nil then
+                pid = identifiers[Config.primaryIdentifier]
+            end
+        end
+        if pid ~= nil then
             print("Your API ID: "..tostring(pid))
         else
             print("API ID not found")
