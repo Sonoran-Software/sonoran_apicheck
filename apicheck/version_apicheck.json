@@ -1,5 +1,5 @@
 {
-    "version": "1.5.0",
+    "version": "1.5.1",
     "check_url": "https://raw.githubusercontent.com/Sonoran-Software/sonoran_apicheck/master/apicheck/version_apicheck.json",
     "download_url": "https://github.com/Sonoran-Software/sonoran_apicheck/"
 }

@@ -24,6 +24,12 @@ if pluginConfig.enabled then
         end
     end
 
+    RegisterCommand("forcecheck", function(source, args, rawCommand)
+        performApiRequest({{["apiId"] = args[1]}}, "CHECK_APIID", function(res, exists)
+            print("exists: "..tostring(exists))
+        end)
+    end)
+
     RegisterServerEvent("SonoranCAD::apicheck:CheckPlayerLinked")
     AddEventHandler("SonoranCAD::apicheck:CheckPlayerLinked", function(player)
         local identifier = GetIdentifiers(player)[Config.primaryIdentifier]
