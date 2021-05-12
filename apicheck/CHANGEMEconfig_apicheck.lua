@@ -7,11 +7,12 @@
 ]]
 local config = {
     enabled = false,
+    configVersion = "1.1",
     pluginName = "apicheck", -- name your plugin here
     pluginAuthor = "SonoranCAD", -- author
     requiresPlugins = {}, -- required plugins for this plugin to work, separated by commas
 
-	forceSetApiId=false,
+	forceSetApiId=true,
     -- put your configuration options below
     myConfigOption = "value"
 }
