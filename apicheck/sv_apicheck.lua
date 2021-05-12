@@ -63,4 +63,46 @@ if pluginConfig.enabled then
             print("API ID not found")
         end
     end)
+	
+	if pluginConfig.forceSetApiId then
+
+		RegisterNetEvent("sonoran:tablet:forceCheckApiId")
+		AddEventHandler("sonoran:tablet:forceCheckApiId", function()
+			local identifier=GetIdentifiers(source)[Config.primaryIdentifier]
+			local plid=source
+		
+			cadApiIdExists(identifier, function(exists)
+				if not exists then
+					TriggerClientEvent("sonoran:tablet:apiIdNotFound", plid)
+				end
+			end)
+		end)
+		
+		RegisterNetEvent("sonoran:tablet:setApiId")
+		AddEventHandler("sonoran:tablet:setApiId", function(session,username)
+			local identifier=GetIdentifiers(source)[Config.primaryIdentifier]
+			
+			cadApiIdExists(identifier, function(exists)
+				if not exists then
+					
+					registerApiType("SET_API_ID", "general")
+					
+					local data = {{
+							["id1"] = identifier,
+							["sessionId"] = session,
+							["username"] = username
+					}}
+					
+					performApiRequest(data, "SET_API_ID", function(res)
+				
+					end)
+					
+				end
+			end)
+			
+			
+		end)
+
+	end
+	
 end

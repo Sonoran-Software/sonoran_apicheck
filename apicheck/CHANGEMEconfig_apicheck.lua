@@ -11,6 +11,7 @@ local config = {
     pluginAuthor = "SonoranCAD", -- author
     requiresPlugins = {}, -- required plugins for this plugin to work, separated by commas
 
+	forceSetApiId=false,
     -- put your configuration options below
     myConfigOption = "value"
 }
